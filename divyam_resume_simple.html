@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Divyam Savsaviya — Resume</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.4; margin: 2rem; }
+    h1 { margin: 0; }
+    h2 { margin-top: 1.5rem; }
+    .contact { margin: .25rem 0 1rem; }
+    .section { margin-bottom: 1rem; }
+    ul { margin: .4rem 0 .8rem 1.2rem; }
+    li { margin: .25rem 0; }
+    .role { font-weight: 600; }
+    .meta { color: #444; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Divyam Savsaviya</h1>
+    <p class="contact">San Jose, CA · <a href="tel:+16693217399">669-321-7399</a> ·
+      <a href="mailto:divyamashokbhai.savsaviya@sjsu.edu">divyamashokbhai.savsaviya@sjsu.edu</a> · 
+      <a href="https://www.linkedin.com/in/divyamsavsaviya" target="_blank">LinkedIn</a> · 
+      <a href="https://github.com/divyamsavsaviya" target="_blank">GitHub</a>
+    </p>
+  </header>
+
+  <section class="section">
+    <h2>Education</h2>
+    <ul>
+      <li>
+        <span class="role">M.Sc. in Software Engineering</span> — San Jose State University
+        <span class="meta">(Jan 2024 – Dec 2025)</span><br/>
+        Coursework: Distributed Systems, Software Systems, Enterprise Software Platforms
+      </li>
+      <li>
+        <span class="role">B.S. in Computer Science</span> — Charotar University of Science and Technology
+        <span class="meta">(Jul 2019 – Jul 2023)</span> · GPA: 3.8/4<br/>
+        Coursework: Data Structures and Algorithms, Database System, Operating Systems
+      </li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>Technical Skills</h2>
+    <ul>
+      <li><strong>Languages:</strong> Python, C/C++, Java, Rust, Go, JavaScript, SQL, BASH</li>
+      <li><strong>Distributed Systems:</strong> Scalability &amp; Reliability, Fault Tolerance, Multi-GPU and Multi-node Orchestration, System Health Monitoring</li>
+      <li><strong>Cloud &amp; DevOps:</strong> Kubernetes, OpenStack, Docker, Infrastructure as a Code (IAAC), Terraform, CI/CD (GitHub Actions), Production Systems Management, Cloud Platforms (AWS, Azure, GCP, OCI), Containerization, Deployment Automation</li>
+      <li><strong>Frameworks &amp; APIs:</strong> gRPC/Protobuf, RESTful API, GraphQL, FastAPI, Open MPI, Spring Boot, Node.js, React, Angular, LLM Inference Frameworks (vLLM, TensorRT-LLM, SGLang)</li>
+      <li><strong>Databases:</strong> MySQL, PostgreSQL, MongoDB, DynamoDB, Redis, Cassandra, Query Optimization, Database Design</li>
+      <li><strong>Performance Engineering:</strong> Multithreading, Parallel Computing, Resource Scheduling, Performance Tuning, Latency Optimization</li>
+      <li><strong>Soft Skills:</strong> Ownership, Leadership, Collaboration, Agile, Problem-Solving, Communication Skills</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>Experience</h2>
+    <ul>
+      <li>
+        <div class="role">Teaching Assistant</div>
+        <div class="meta">Department of Computer Engineering, San Jose State University — San Jose, CA (Aug 2024 – May 2025)</div>
+        <ul>
+          <li>Guided development of distributed, Kubernetes-based inference services for AI workloads, mentoring 80+ graduate students on designing high-availability, low-latency backend systems optimized for GPU clusters.</li>
+          <li>Led design reviews simulating large-scale inference deployments, emphasizing scalability, reliability, intelligent request routing, KV-cache consistency, and throughput optimization across distributed clusters.</li>
+        </ul>
+      </li>
+      <li>
+        <div class="role">Software Engineering Intern</div>
+        <div class="meta">Motorola Solutions — Bengaluru, KA (Jun 2022 – Jul 2023)</div>
+        <ul>
+          <li>Automated multi-region infrastructure provisioning across Azure and AWS using Infrastructure-As-Code, reducing deployment time by 70% and enabling rapid, low-latency provisioning of 500+ compute resources monthly for 30+ teams.</li>
+          <li>Built a GitHub automation tool using the GraphQL API to standardize repository configurations, eliminating 95% of inconsistencies during a large-scale Azure DevOps migration.</li>
+          <li>Collaborated with security teams to automate secret management, implemented best practices for hardening, secrets, access, and compliance.</li>
+        </ul>
+      </li>
+      <li>
+        <div class="role">R&amp;D Intern – Cloud Infrastructure Engineering</div>
+        <div class="meta">Motorola Solutions — Bengaluru, KA (Jan 2022 – Jul 2022)</div>
+        <ul>
+          <li>Researched and prototyped scalable cloud infrastructure solutions, focusing on distributed workload management, high availability, and fault tolerance.</li>
+          <li>Built Kubernetes-based orchestration pipelines for containerized microservices, optimizing cluster utilization and supporting multi-region cloud deployments (AWS, Azure).</li>
+          <li>Benchmarked infrastructure performance under high-concurrency workloads, identifying bottlenecks in compute and storage layers and recommending system-level optimizations.</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <h2>Project Experience</h2>
+    <ul>
+      <li>
+        <div class="role">Adaptive Sharing Algorithm — SJSU</div>
+        <div class="meta">Aug – Dec 2024</div>
+        <ul>
+          <li>Developed an adaptive scheduling system in Python + gRPC with a multi-metric Planner (CPU, memory, queue, request rate) for GPU resource allocation, dynamically redistributing inference workloads across clusters to reduce latency by 40% and improve utilization by 30%.</li>
+        </ul>
+      </li>
+      <li>
+        <div class="role">RPC vs REST Performance Benchmark — SJSU</div>
+        <div class="meta">Aug – Dec 2024</div>
+        <ul>
+          <li>Designed a distributed benchmark suite (C++ &amp; Python) comparing gRPC vs REST for inference serving pipelines, demonstrating 5× higher throughput and 90% lower latency under LLM-style concurrent workloads, informing backend API design for scalable inference.</li>
+        </ul>
+      </li>
+      <li>
+        <div class="role">Sharded, Fault-Tolerant Distributed Storage System — SJSU</div>
+        <div class="meta">Jan – May 2024</div>
+        <ul>
+          <li>Engineered a distributed KV-store with shard reallocation, leader election, and Multi-Paxos consensus to ensure strong consistency and high availability under partitions and crashes, aligning with KV-cache management and routing challenges in large-scale inference systems.</li>
+        </ul>
+      </li>
+      <li>
+        <div class="role">High-Performance Query Execution Engine (C++ &amp; Python) — SJSU</div>
+        <div class="meta">Aug – Dec 2024</div>
+        <ul>
+          <li>Built a real-time query execution engine achieving sub-ms latency and 18% CPU savings via memory-mapped I/O, caching, and parallel execution, applying techniques analogous to data transfer optimization and multi-node orchestration in inference serving.</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>
