@@ -1,125 +1,270 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
   <title>Divyam Savsaviya — Resume</title>
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.4; margin: 2rem; }
-    h1 { margin: 0; }
-    h2 { margin-top: 1.5rem; }
-    .contact { margin: .25rem 0 1rem; }
-    .section { margin-bottom: 1rem; }
-    ul { margin: .4rem 0 .8rem 1.2rem; }
-    li { margin: .25rem 0; }
-    .role { font-weight: 600; }
-    .meta { color: #444; }
+    :root {
+      --bg: #ffffff;
+      --fg: #0b0c0f;
+      --muted: #5b6474;
+      --border: #e6e8ee;
+      --chip: #f3f5f9;
+      --max: 940px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #0b0c0f; --fg: #eef0f4; --muted: #a7afbd; --border: #242a35; --chip: #161b24; }
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      color: var(--fg);
+      background: var(--bg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      -webkit-text-size-adjust: 100%;
+      text-rendering: optimizeLegibility;
+    }
+
+    .page { width: min(var(--max), 100% - 2rem); margin-inline: auto; padding-block: 1.25rem 2rem; }
+
+    /* Header */
+    .header {
+      display: grid;
+      grid-template-columns: auto 96px;
+      gap: 1rem;
+      align-items: center;
+    }
+    @media (min-width: 640px) {
+      .header { grid-template-columns: 1fr 140px; }
+    }
+
+    h1 { margin: 0; font-size: clamp(1.6rem, 4.8vw, 2.4rem); letter-spacing: .2px; }
+    .contact { 
+      margin-top: .5rem; 
+      display: flex; flex-wrap: wrap; gap: .35rem 1rem; 
+      color: var(--muted); font-size: clamp(.95rem, 2.7vw, 1rem);
+    }
+    .contact a { color: inherit; text-decoration: none; border-bottom: 1px dashed var(--border); padding-bottom: 2px; }
+    .contact a:hover { text-decoration: underline; }
+
+    .avatar {
+      width: 96px; height: 96px; border-radius: 50%; object-fit: cover; border: 3px solid var(--border);
+      justify-self: end;
+    }
+    @media (min-width: 640px) { .avatar { width: 140px; height: 140px; } }
+
+    /* Sections */
+    .section { margin-top: 1.1rem; padding-top: .9rem; border-top: 1px solid var(--border); }
+    .section:first-of-type { border-top: 0; padding-top: 0; }
+    .section h2 { margin: 0 0 .5rem; font-size: clamp(1rem, 2.8vw, 1.1rem); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+
+    /* Summary */
+    .summary { font-size: 1rem; }
+
+    /* Lists */
+    ul { margin: .25rem 0 .25rem 0; padding-left: 1rem; }
+    li { margin: .3rem 0; }
+
+    /* Reusable atoms */
+    .item { margin-bottom: 1rem; }
+    .role { font-weight: 700; }
+    .meta { color: var(--muted); font-size: .96rem; }
+
+    /* Skills chips */
+    .chips { display: flex; flex-wrap: wrap; gap: .4rem; margin: .2rem 0 .6rem; padding: 0; list-style: none; }
+    .chip { padding: .25rem .5rem; border: 1px solid var(--border); background: var(--chip); border-radius: 999px; font-size: .9rem; }
+
+    /* Two-column on wide screens */
+    @media (min-width: 880px) {
+      .columns { display: grid; grid-template-columns: 1.15fr .85fr; gap: 1.25rem; align-items: start; }
+    }
+
+    /* Print tweaks */
+    @media print {
+      body { background: #fff; }
+      .page { width: 100%; padding: 0 0.5in; }
+      .section { break-inside: avoid; }
+      a { color: #000; text-decoration: none; }
+      .avatar { border: none; }
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Divyam Savsaviya</h1>
-    <p class="contact">San Jose, CA · <a href="tel:+16693217399">669-321-7399</a> ·
-      <a href="mailto:divyamashokbhai.savsaviya@sjsu.edu">divyamashokbhai.savsaviya@sjsu.edu</a> · 
-      <a href="https://www.linkedin.com/in/divyamsavsaviya" target="_blank">LinkedIn</a> · 
-      <a href="https://github.com/divyamsavsaviya" target="_blank">GitHub</a>
-    </p>
-  </header>
+  <main class="page">
+    <!-- Header with headshot -->
+    <header class="header">
+      <div>
+        <h1>Divyam Savsaviya</h1>
+        <p class="contact">
+          San Jose, CA ·
+          <a href="tel:+16693217399" aria-label="Call Divyam">(669) 321-7399</a> ·
+          <a href="mailto:divyamashokbhai.savsaviya@sjsu.edu" aria-label="Email Divyam">divyamashokbhai.savsaviya@sjsu.edu</a> ·
+          <a href="https://www.linkedin.com/in/divyamsavsaviya" target="_blank" rel="noopener">LinkedIn</a> ·
+          <a href="https://github.com/divyamsavsaviya" target="_blank" rel="noopener">GitHub</a>
+        </p>
+      </div>
+      <!-- Replace src with your real headshot URL or path -->
+      <img class="avatar" src="https://lh3.googleusercontent.com/a-/ALV-UjV_8M5ALYW3ry8AvkjriDPloYkUDYrbJQPLWg4SF82QT0Jsa3JPzJePzN3F0aifIk_iBfwXp2YdJihoqz5gy1l3iN6nfRKgm_b1uUDi9EU-MkA-bpknAwOe2bCCbPt2smdVo5xv6tAlebjH0pwaD9MFYZcWKLuWBOkXKf0SeRj43wTRRfuXOghA_Nm7PrW38lYrgDUSXjeyXgsSYSFZEeq9oJusVMydQ7QS10qBFQwxoGGB8rbSGQaOzzXzCGx-BUTgWdFJKHVzEBxO-bD5IwXWX0SjZo84x2k2Hq1qJdZdvFSjCg52ohh8ZE0INXdmY5n6CZiqmITsq5PsPlgvBruEzhp0S-q8SKTIgEUIPDfgg98rbet6c53ny5T2DwKnh2C6CARsgaSzyrt8NyutSSlgmpFzXQteZFAe6aB64EqPWzLdyDdft4HxWCXOTsBuNyJfC_Ua0I7KCLcvlijzhmPDQCWbBSrMdXFbUP1Z9WLsElGH1FWYTabyc4ZgoHRMu9q5wbHbm7ZywXLZnSZJQ5Y_EDSqL0eeNvsveiJMa9g7R5E0byvs8fm05A0ueE1ITEfcIBpFl_OmVav2cMlM6ymYw84Roc_j84pit3gid44iPUPL0dcJbz3dXcH6UVQL_c2CiWI2A-4ElaCb88kiJPsz_mm9RflFJVxhDsl-7o1TNHslbjMWLqI-VcUEMSTwDPazh0r3CQBZtGSO7cS4bU09w-R-nzwO0BP-Acnqg918dZepLceJA7cE5NWB7FFbGRylkOdzLdv2Tq8M_3Oq-SA6O_oO7c-cniHiPuTrMq9YsRS4qKNBuV3hnfXmM5V9OtQDruc8Jt0Zt0483NKxTAvwLJW4bfMGr-_b5L0s67f6cacHNXiE1GlLm_4pefs87BXXlXv_uqQ5B5kCc44QWRbKCs8pUj0DAG8eH8h9eh0WYOU38NOVknl9KCE4OcPII5lk6apdebL8UKVsk7YowT5kNrdQ1SuQ=s720-c-no" alt="Headshot of Divyam Savsaviya" />
+    </header>
 
-  <section class="section">
-    <h2>Education</h2>
-    <ul>
-      <li>
-        <span class="role">M.Sc. in Software Engineering</span> — San Jose State University
-        <span class="meta">(Jan 2024 – Dec 2025)</span><br/>
-        Coursework: Distributed Systems, Software Systems, Enterprise Software Platforms
-      </li>
-      <li>
-        <span class="role">B.S. in Computer Science</span> — Charotar University of Science and Technology
-        <span class="meta">(Jul 2019 – Jul 2023)</span> · GPA: 3.8/4<br/>
-        Coursework: Data Structures and Algorithms, Database System, Operating Systems
-      </li>
-    </ul>
-  </section>
+    <!-- Professional Summary -->
+    <section class="section">
+      <h2>Summary</h2>
+      <p class="summary">
+        Software engineer who loves turning complex ideas into simple, dependable products. I build and improve
+        back‑end services that scale, stay reliable, and feel fast for users. At SJSU, I mentor graduate teams and
+        run design reviews that raise the bar on clarity and execution. Earlier at Motorola Solutions, I automated
+        cloud rollouts and improved developer tools, cutting delivery time and reducing errors. I bring ownership,
+        clear communication, and a calm, results‑first mindset.
+      </p>
+    </section>
 
-  <section class="section">
-    <h2>Technical Skills</h2>
-    <ul>
-      <li><strong>Languages:</strong> Python, C/C++, Java, Rust, Go, JavaScript, SQL, BASH</li>
-      <li><strong>Distributed Systems:</strong> Scalability &amp; Reliability, Fault Tolerance, Multi-GPU and Multi-node Orchestration, System Health Monitoring</li>
-      <li><strong>Cloud &amp; DevOps:</strong> Kubernetes, OpenStack, Docker, Infrastructure as a Code (IAAC), Terraform, CI/CD (GitHub Actions), Production Systems Management, Cloud Platforms (AWS, Azure, GCP, OCI), Containerization, Deployment Automation</li>
-      <li><strong>Frameworks &amp; APIs:</strong> gRPC/Protobuf, RESTful API, GraphQL, FastAPI, Open MPI, Spring Boot, Node.js, React, Angular, LLM Inference Frameworks (vLLM, TensorRT-LLM, SGLang)</li>
-      <li><strong>Databases:</strong> MySQL, PostgreSQL, MongoDB, DynamoDB, Redis, Cassandra, Query Optimization, Database Design</li>
-      <li><strong>Performance Engineering:</strong> Multithreading, Parallel Computing, Resource Scheduling, Performance Tuning, Latency Optimization</li>
-      <li><strong>Soft Skills:</strong> Ownership, Leadership, Collaboration, Agile, Problem-Solving, Communication Skills</li>
-    </ul>
-  </section>
+    <div class="columns">
+      <div>
+        <!-- Experience -->
+        <section class="section">
+          <h2>Experience</h2>
+          <ul>
+            <li class="item">
+              <div class="role">Teaching Assistant — CMPE 272 Enterprise Software Platforms</div>
+              <div class="meta">San Jose State University — San Jose, CA (<time datetime="2024-08">Aug 2024</time> – <time datetime="2025-05">May 2025</time>)</div>
+              <ul>
+                <li>Mentored 80+ graduate students building distributed, Kubernetes‑based inference services for AI workloads.</li>
+                <li>Ran design reviews mirroring production deployments: scalability, reliability, intelligent request routing, KV‑cache consistency, and throughput optimization across clusters.</li>
+              </ul>
+            </li>
+            <li class="item">
+              <div class="role">Software Engineering Intern — Infrastructure</div>
+              <div class="meta">Motorola Solutions — Bengaluru, KA (<time datetime="2022-06">Jun 2022</time> – <time datetime="2023-07">Jul 2023</time>)</div>
+              <ul>
+                <li>Automated multi‑region provisioning across Azure & AWS (Terraform, Kubernetes), cutting deployment time by ~70% and supporting 500+ compute resources/month for 30+ teams.</li>
+                <li>Standardized GitHub org configuration via GraphQL automation, eliminating ~95% repo inconsistencies during Azure DevOps migration.</li>
+                <li>Partnered with security to automate secret management and hardening; tightened access controls and compliance.
+                </li>
+              </ul>
+            </li>
+            <li class="item">
+              <div class="role">R&amp;D Intern — Cloud Infrastructure Engineering</div>
+              <div class="meta">Motorola Solutions — Bengaluru, KA (<time datetime="2022-01">Jan 2022</time> – <time datetime="2022-07">Jul 2022</time>)</div>
+              <ul>
+                <li>Prototyped scalable infra for distributed workloads with high availability and fault tolerance.</li>
+                <li>Built Kubernetes orchestration pipelines for containerized microservices; improved cluster utilization and enabled multi‑region (AWS, Azure) deployments.</li>
+                <li>Benchmarked high‑concurrency workloads; identified compute/storage bottlenecks and drove system‑level optimizations.</li>
+              </ul>
+            </li>
+          </ul>
+        </section>
 
-  <section class="section">
-    <h2>Experience</h2>
-    <ul>
-      <li>
-        <div class="role">Teaching Assistant</div>
-        <div class="meta">Department of Computer Engineering, San Jose State University — San Jose, CA (Aug 2024 – May 2025)</div>
-        <ul>
-          <li>Guided development of distributed, Kubernetes-based inference services for AI workloads, mentoring 80+ graduate students on designing high-availability, low-latency backend systems optimized for GPU clusters.</li>
-          <li>Led design reviews simulating large-scale inference deployments, emphasizing scalability, reliability, intelligent request routing, KV-cache consistency, and throughput optimization across distributed clusters.</li>
-        </ul>
-      </li>
-      <li>
-        <div class="role">Software Engineering Intern</div>
-        <div class="meta">Motorola Solutions — Bengaluru, KA (Jun 2022 – Jul 2023)</div>
-        <ul>
-          <li>Automated multi-region infrastructure provisioning across Azure and AWS using Infrastructure-As-Code, reducing deployment time by 70% and enabling rapid, low-latency provisioning of 500+ compute resources monthly for 30+ teams.</li>
-          <li>Built a GitHub automation tool using the GraphQL API to standardize repository configurations, eliminating 95% of inconsistencies during a large-scale Azure DevOps migration.</li>
-          <li>Collaborated with security teams to automate secret management, implemented best practices for hardening, secrets, access, and compliance.</li>
-        </ul>
-      </li>
-      <li>
-        <div class="role">R&amp;D Intern – Cloud Infrastructure Engineering</div>
-        <div class="meta">Motorola Solutions — Bengaluru, KA (Jan 2022 – Jul 2022)</div>
-        <ul>
-          <li>Researched and prototyped scalable cloud infrastructure solutions, focusing on distributed workload management, high availability, and fault tolerance.</li>
-          <li>Built Kubernetes-based orchestration pipelines for containerized microservices, optimizing cluster utilization and supporting multi-region cloud deployments (AWS, Azure).</li>
-          <li>Benchmarked infrastructure performance under high-concurrency workloads, identifying bottlenecks in compute and storage layers and recommending system-level optimizations.</li>
-        </ul>
-      </li>
-    </ul>
-  </section>
+        <!-- Projects -->
+        <section class="section">
+          <h2>Projects</h2>
+          <ul>
+            <li class="item">
+              <div class="role">Adaptive Sharing Algorithm — SJSU</div>
+              <div class="meta"><time datetime="2024-08">Aug 2024</time> – <time datetime="2024-12">Dec 2024</time></div>
+              <ul>
+                <li>Python + gRPC scheduler using CPU, memory, queue, and request‑rate metrics for GPU allocation; dynamically redistributed inference workloads to reduce latency by ~40% and improve utilization by ~30%.</li>
+              </ul>
+            </li>
+            <li class="item">
+              <div class="role">RPC vs REST Performance Benchmark — SJSU</div>
+              <div class="meta"><time datetime="2024-08">Aug 2024</time> – <time datetime="2024-12">Dec 2024</time></div>
+              <ul>
+                <li>Distributed benchmark suite (C++ & Python) comparing gRPC vs REST for LLM‑style concurrent workloads; demonstrated up to 5× higher throughput and ~90% lower latency with gRPC under load.</li>
+              </ul>
+            </li>
+            <li class="item">
+              <div class="role">Sharded, Fault‑Tolerant Distributed Storage System — SJSU</div>
+              <div class="meta"><time datetime="2024-01">Jan 2024</time> – <time datetime="2024-05">May 2024</time></div>
+              <ul>
+                <li>Engineered a distributed KV‑store with shard reallocation, leader election, and Multi‑Paxos consensus for strong consistency and high availability; validated with DSLabs correctness/performance tests.</li>
+              </ul>
+            </li>
+            <li class="item">
+              <div class="role">High‑Performance Query Execution Engine (C++ & Python) — SJSU</div>
+              <div class="meta"><time datetime="2024-08">Aug 2024</time> – <time datetime="2024-12">Dec 2024</time></div>
+              <ul>
+                <li>Sub‑ms query latency and ~18% CPU savings via memory‑mapped I/O, caching, and parallel execution; techniques analogous to data‑transfer optimization and multi‑node orchestration in inference serving.</li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+      </div>
 
-  <section class="section">
-    <h2>Project Experience</h2>
-    <ul>
-      <li>
-        <div class="role">Adaptive Sharing Algorithm — SJSU</div>
-        <div class="meta">Aug – Dec 2024</div>
-        <ul>
-          <li>Developed an adaptive scheduling system in Python + gRPC with a multi-metric Planner (CPU, memory, queue, request rate) for GPU resource allocation, dynamically redistributing inference workloads across clusters to reduce latency by 40% and improve utilization by 30%.</li>
-        </ul>
-      </li>
-      <li>
-        <div class="role">RPC vs REST Performance Benchmark — SJSU</div>
-        <div class="meta">Aug – Dec 2024</div>
-        <ul>
-          <li>Designed a distributed benchmark suite (C++ &amp; Python) comparing gRPC vs REST for inference serving pipelines, demonstrating 5× higher throughput and 90% lower latency under LLM-style concurrent workloads, informing backend API design for scalable inference.</li>
-        </ul>
-      </li>
-      <li>
-        <div class="role">Sharded, Fault-Tolerant Distributed Storage System — SJSU</div>
-        <div class="meta">Jan – May 2024</div>
-        <ul>
-          <li>Engineered a distributed KV-store with shard reallocation, leader election, and Multi-Paxos consensus to ensure strong consistency and high availability under partitions and crashes, aligning with KV-cache management and routing challenges in large-scale inference systems.</li>
-        </ul>
-      </li>
-      <li>
-        <div class="role">High-Performance Query Execution Engine (C++ &amp; Python) — SJSU</div>
-        <div class="meta">Aug – Dec 2024</div>
-        <ul>
-          <li>Built a real-time query execution engine achieving sub-ms latency and 18% CPU savings via memory-mapped I/O, caching, and parallel execution, applying techniques analogous to data transfer optimization and multi-node orchestration in inference serving.</li>
-        </ul>
-      </li>
-    </ul>
-  </section>
-</main>
+      <div>
+        <!-- Skills -->
+        <section class="section">
+          <h2>Technical Skills</h2>
+          <div class="item">
+            <div class="role">Languages</div>
+            <ul class="chips">
+              <li class="chip">Python</li><li class="chip">C/C++</li><li class="chip">Java</li><li class="chip">Rust</li><li class="chip">Go</li><li class="chip">JavaScript</li><li class="chip">SQL</li><li class="chip">Bash</li>
+            </ul>
+          </div>
+          <div class="item">
+            <div class="role">Distributed Systems</div>
+            <ul class="chips">
+              <li class="chip">Scalability</li><li class="chip">Fault Tolerance</li><li class="chip">HA</li><li class="chip">Multi‑GPU</li><li class="chip">Multi‑node Orchestration</li><li class="chip">Observability</li>
+            </ul>
+          </div>
+          <div class="item">
+            <div class="role">Cloud & DevOps</div>
+            <ul class="chips">
+              <li class="chip">Kubernetes</li><li class="chip">Docker</li><li class="chip">OpenStack</li><li class="chip">Terraform</li><li class="chip">CI/CD (GH Actions)</li><li class="chip">AWS</li><li class="chip">Azure</li><li class="chip">GCP</li><li class="chip">OCI</li>
+            </ul>
+          </div>
+          <div class="item">
+            <div class="role">Frameworks & APIs</div>
+            <ul class="chips">
+              <li class="chip">gRPC/Protobuf</li><li class="chip">REST</li><li class="chip">GraphQL</li><li class="chip">FastAPI</li><li class="chip">Open MPI</li><li class="chip">Spring Boot</li><li class="chip">Node.js</li><li class="chip">React</li><li class="chip">Angular</li><li class="chip">vLLM</li><li class="chip">TensorRT‑LLM</li><li class="chip">SGLang</li>
+            </ul>
+          </div>
+          <div class="item">
+            <div class="role">Databases</div>
+            <ul class="chips">
+              <li class="chip">PostgreSQL</li><li class="chip">MySQL</li><li class="chip">MongoDB</li><li class="chip">DynamoDB</li><li class="chip">Redis</li><li class="chip">Cassandra</li>
+            </ul>
+            <ul class="chips">
+              <li class="chip">Query Optimization</li><li class="chip">Data Modeling</li>
+            </ul>
+          </div>
+          <div class="item">
+            <div class="role">Performance</div>
+            <ul class="chips">
+              <li class="chip">Multithreading</li><li class="chip">Parallel Computing</li><li class="chip">Scheduling</li><li class="chip">Latency Tuning</li>
+            </ul>
+          </div>
+          <div class="item">
+            <div class="role">Soft Skills</div>
+            <ul class="chips">
+              <li class="chip">Ownership</li><li class="chip">Leadership</li><li class="chip">Collaboration</li><li class="chip">Agile</li><li class="chip">Communication</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Education -->
+        <section class="section">
+          <h2>Education</h2>
+          <ul>
+            <li class="item">
+              <div class="role">M.Sc. in Software Engineering</div>
+              <div>San Jose State University <span class="meta">(<time datetime="2024-01">Jan 2024</time> – <time datetime="2025-12">Dec 2025</time>)</span></div>
+              <div class="meta">Coursework: Distributed Systems, Software Systems, Enterprise Software Platforms</div>
+            </li>
+            <li class="item">
+              <div class="role">B.S. in Computer Science</div>
+              <div>Charotar University of Science and Technology <span class="meta">(<time datetime="2019-07">Jul 2019</time> – <time datetime="2023-07">Jul 2023</time>) · GPA: 3.8/4</span></div>
+              <div class="meta">Coursework: Data Structures and Algorithms, Database Systems, Operating Systems</div>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </main>
 </body>
 </html>
